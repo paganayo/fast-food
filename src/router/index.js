@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from '@ionic/vue-router';
 import HomePage from '@/views/HomePage.vue';
 import LoyaltyPage from '@/views/LoyaltyPage.vue';
 import LoginPage from '@/views/LoginPage.vue';
+import OrderPage from '@/views/OrderPage.vue';
 const routes = [
   {
     path: '',
@@ -16,6 +17,11 @@ const routes = [
     path: '/user/loyalty-points',
     name: 'Loyalty',
     component: LoyaltyPage,
+  },
+  {
+    path: '/user/order',
+    name: 'Our Foods',
+    component: OrderPage,
   },
   {
     path: '/login',

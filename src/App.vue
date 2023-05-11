@@ -69,12 +69,20 @@
                   selected: selectedIndex === index,
                 }"
               >
+                <ion-img
+                  v-if="index === 0"
+                  id="fastfood-logo"
+                  src="../../public/fastfood.png"
+                ></ion-img>
                 <ion-icon
+                  v-if="index !== 0"
                   aria-hidden="true"
                   slot="start"
                   :md="menu.mdIcon"
                 ></ion-icon>
-                <ion-label>{{ menu.title }}</ion-label>
+                <ion-label style="font-weight: bold">{{
+                  menu.title
+                }}</ion-label>
                 <ion-badge
                   class="notif-badge"
                   v-if="index === 2 || index === 5"
@@ -116,6 +124,7 @@ import {
   IonAvatar,
   IonItemDivider,
   IonBadge,
+  IonImg,
 } from '@ionic/vue';
 import { ref, reactive } from 'vue';
 import {
@@ -140,22 +149,22 @@ const loyaltyPoints = reactive({ count: 0 });
 const menuList = [
   {
     title: 'Home',
-    url: '/user/Home',
+    url: '/user/home',
     mdIcon: homeSharp,
   },
   {
     title: 'Order Now!',
-    url: '/user/Order',
+    url: '/user/order',
     mdIcon: fastFoodSharp,
   },
   {
     title: 'Notifications',
-    url: '/user/Notifications',
+    url: '/user/notifications',
     mdIcon: notificationsSharp,
   },
   {
     title: 'Store Locator',
-    url: '/user/Store-Locator',
+    url: '/user/store-locator',
     mdIcon: storefrontSharp,
   },
   {
@@ -205,7 +214,11 @@ if (path !== undefined) {
 ion-menu ion-content {
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
 }
-
+ion-img#fastfood-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 33px;
+}
 img.crown {
   height: 40px;
   width: 40px;

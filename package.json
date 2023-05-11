@@ -24,7 +24,9 @@
     "ionicons": "^7.0.0",
     "swiper": "^9.3.1",
     "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vue-star-rating": "^2.1.0",
+    "vue3-circle-progress": "^1.0.7"
   },
   "devDependencies": {
     "@capacitor/cli": "5.0.1",

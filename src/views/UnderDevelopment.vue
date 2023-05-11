@@ -2,8 +2,10 @@
   <ion-page>
     <ion-toolbar>
       <ion-buttons slot="start">
-        <ion-menu-button color="primary"></ion-menu-button>
-        <ion-badge color="warning" mode="md">&nbsp;</ion-badge>
+        <ion-back-button></ion-back-button>
+        <!-- <ion-menu-button color="primary"></ion-menu-button> -->
+        <!-- <ion-badge color="warning" mode="md">&nbsp;</ion-badge> -->
+        <ion-title>Back Button</ion-title>
       </ion-buttons>
       <!-- <ion-title>{{ $route.params.id }}</ion-title> -->
     </ion-toolbar>
@@ -33,6 +35,7 @@ import {
   IonTitle,
   IonToolbar,
   IonBadge,
+  IonBackButton,
 } from '@ionic/vue';
 </script>
 

@@ -57,8 +57,40 @@
         <ion-row style="height: 200px">
           <ion-col style="display: flex" class="ion-justify-content-center">
             <!-- <ion-button @click="loyaltyPoints.count++"> count+ </ion-button> -->
+            <div style="position: relative">
+              <circle-progress
+                :percent="ceilingPoints()"
+                :empty-color="'#F7D1D3'"
+                :fill-color="'#E2332E'"
+                :border-width="10"
+                :border-bg-width="15"
+                :is-bg-shadow="false"
+                :bg-shadow="{
+                  inset: false,
+                  blur: 2,
+                  vertical: 0,
+                  horizontal: 0,
+                  opacity: 0.9,
+                  color: '#ffffff',
+                }"
+              />
+              <ion-text
+                :style="{
+                  position: 'absolute',
+                  top: '75px',
+                  left: checkLoyalty,
+                  'z-index': 1,
+                  'font-weight': 'bold',
+                  'font-size': '25px',
+                }"
+                >{{ loyaltyPoints.count }} /
+                {{ loyaltyPoints.maxCount }}</ion-text
+              >
+            </div>
           </ion-col>
         </ion-row>
+        <!-- <ion-button @click="loyaltyPoints.count++">count++</ion-button> //
+        button for checking if the progress bar is working -->
       </ion-grid>
       <ion-grid>
         <ion-row class="ion-align-items-center">
@@ -157,6 +189,8 @@
 </template>
 
 <script setup>
+import 'vue3-circle-progress/dist/circle-progress.css';
+import CircleProgress from 'vue3-circle-progress';
 import {
   IonButtons,
   IonContent,
@@ -187,9 +221,16 @@ import {
   IonCardSubtitle,
 } from '@ionic/vue';
 import { chevronForwardSharp } from 'ionicons/icons';
-import { ref, reactive } from 'vue';
+import { ref, reactive, computed } from 'vue';
 
 const loyaltyPoints = reactive({ count: 0, maxCount: 160 });
+const checkLoyalty = computed(() => {
+  return loyaltyPoints.count < 100
+    ? loyaltyPoints.count < 10
+      ? '55px'
+      : '45px'
+    : '40px';
+});
 const loyaltyCards = [
   {
     id: 1,
@@ -207,6 +248,15 @@ const loyaltyCards = [
   },
   { id: 3, name: 'Sorbetes', points: '30 points', type: 'Dessert', imgSrc: '' },
 ];
+
+function ceilingPoints() {
+  console.log(
+    'ceiling: ',
+    Math.ceil((loyaltyPoints.count / loyaltyPoints.maxCount) * 100)
+  );
+  console.log('lp:', loyaltyPoints.count);
+  return Math.ceil((loyaltyPoints.count / loyaltyPoints.maxCount) * 100);
+}
 
 function isDesktop() {
   return window.innerWidth >= 992;

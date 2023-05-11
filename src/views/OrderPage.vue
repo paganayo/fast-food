@@ -15,31 +15,25 @@
             justify-content: center;
           "
         >
-          <ion-avatar class="crown-container">
-            <img class="crown" src="../../public/crown.png" />
-          </ion-avatar>
-          <ion-button
-            fill="clear"
-            router-direction="root"
-            router-link="/user/loyalty-points"
-            class="points-button"
+          <ion-title style="font-weight: bold" size="large"
+            >Our Foods</ion-title
           >
-            0 points
-            <ion-icon
-              class="points-icon"
-              slot="end"
-              :icon="chevronForwardSharp"
-            ></ion-icon>
-          </ion-button>
         </div>
-        <div>
-          <ion-avatar class="profile-container">
+        <div class="order-container">
+          <!-- <ion-avatar class="profile-container">
             <img
               class="profile"
               alt="Silhouette of a person's head"
               src="../../public/mina.jpg"
             />
-          </ion-avatar>
+        </ion-avatar> -->
+          <ion-icon
+            slot="end"
+            style="font-size: 27px"
+            color="primary"
+            :icon="bagSharp"
+            s
+          ></ion-icon>
         </div>
       </div>
     </ion-toolbar>
@@ -48,11 +42,11 @@
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <!-- <ion-toolbar>
-          <ion-title size="large">full</ion-title>
-        </ion-toolbar> -->
+            <ion-title size="large">full</ion-title>
+          </ion-toolbar> -->
       </ion-header>
-      <ion-grid
-        ><ion-row>
+      <ion-grid>
+        <!-- <ion-row>
           <ion-col size="75px">
             <ion-img
               id="fastfood-logo"
@@ -69,122 +63,67 @@
             <ion-text>Anneoyong, Mina!</ion-text>
             <ion-text id="wdyeat">What do you want<br />to eat?</ion-text>
           </ion-col>
-        </ion-row>
+        </ion-row> -->
         <ion-row>
           <ion-col class="ion-no-padding">
             <ion-searchbar
               class="searchbar"
-              placeholder="try our new Steak Fries Veggies"
+              placeholder="try our new Beef Bibimbowl"
             ></ion-searchbar>
+            <div style="position: relative">
+              <ion-button id="setting"
+                ><ion-icon :icon="optionsOutline"></ion-icon
+              ></ion-button>
+            </div>
           </ion-col>
         </ion-row>
-        <ion-row class="ion-align-items-center">
-          <ion-col size="8">
-            <ion-text class="headers">Special Offers!</ion-text></ion-col
-          >
-          <ion-col
-            size="4"
-            id="vall"
-            style="display: flex; justify-content: flex-end"
-          >
-            <ion-button fill="clear" class="ion-text-capitalize">
-              View All
-              <ion-icon
-                slot="end"
-                :icon="chevronForwardSharp"
-              ></ion-icon> </ion-button
-          ></ion-col>
-        </ion-row>
-        <swiper
-          :modules="modules"
-          :slides-per-view="1"
-          :autoplay="true"
-          :breakpoints="screenBreakpoints_special"
-          @swiper="onSwiper"
-          @slideChange="onSlideChange"
-          class="swiper-wrapper"
-        >
-          <!-- <swiper-slide
-            ><img
-              class="slider-img"
-              alt="Silhouette of a person's head"
-              src="../../public/special-offer-1.png"
-          /></swiper-slide>
-          <swiper-slide
-            ><img class="slider-img" src="../../public/special-offer-2.png"
-          /></swiper-slide> -->
-
-          <swiper-slide
-            v-for="item in specialOffers"
-            :key="item.id"
-            style="display: flex; justify-content: center"
-            ><img class="slider-img-special" :src="item.imgSrc" />
-          </swiper-slide>
-        </swiper>
-      </ion-grid>
-      <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-text class="headers">Category</ion-text>
-          </ion-col>
-        </ion-row>
-
-        <swiper
-          :modules="modules"
-          :slides-per-view="1"
-          :autoplay="{ delay: 4000 }"
-          @swiper="onSwiper"
-          :breakpoints="screenBreakpoints_category"
-          @slideChange="onSlideChange"
-          class="swiper-wrapper"
-        >
-          <!-- <swiper-slide
-            ><img
-              class="slider-img"
-              alt="Silhouette of a person's head"
-              src="../../public/special-offer-1.png"
-          /></swiper-slide>
-          <swiper-slide
-            ><img class="slider-img" src="../../public/special-offer-2.png"
-          /></swiper-slide> -->
-
-          <swiper-slide
-            v-for="item in category"
-            :key="item.id"
-            style="padding-left: 20px"
-            ><div
-              class="slider-img-category"
-              style="
-                position: relative;
-                overflow: hidden;
-                width: 200px;
-                height: 300px;
-              "
-            >
-              <img id="bigImg" :src="item.imgSrc" />
-              <ion-text
-                style="
-                  position: absolute;
-                  top: 250px;
-                  left: 20px;
-                  z-index: 1;
-                  color: white;
-                  font-weight: bold;
-                "
-                >{{ item.name }}</ion-text
+            <ion-segment :scrollable="true" value="All">
+              <!-- <ion-segment-button
+                style="width: 50px !important; margin-right;: 10px !important"
+                class="ion-text-capitalize segment-button"
+                value="All"
               >
-            </div></swiper-slide
-          >
-        </swiper>
-      </ion-grid>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <ion-text class="headers">What's new?</ion-text>
+                <ion-label>All</ion-label>
+              </ion-segment-button> -->
+              <ion-segment-button
+                v-for="(type, index) in foodTypes"
+                :key="index"
+                class="ion-text-capitalize segment-button"
+                :value="type"
+              >
+                <ion-label>{{ type }}</ion-label>
+              </ion-segment-button>
+              <!-- <ion-segment-button
+                class="ion-text-capitalize segment-button"
+                value="Beginner"
+              >
+                <ion-label>Beginner</ion-label>
+              </ion-segment-button>
+              <ion-segment-button
+                class="ion-text-capitalize segment-button"
+                value="Intermediate"
+              >
+                <ion-label>Intermediate</ion-label>
+              </ion-segment-button>
+              <ion-segment-button
+                class="ion-text-capitalize segment-button"
+                value="Loyal"
+              >
+                <ion-label>Loyal</ion-label>
+              </ion-segment-button>
+              <ion-segment-button
+                class="ion-text-capitalize segment-button"
+                value="asd"
+              >
+                <ion-label>asd</ion-label>
+              </ion-segment-button> -->
+            </ion-segment>
           </ion-col>
         </ion-row>
-        <ion-img style="margin: 20px" src="../../public/whatsN.png"> </ion-img>
       </ion-grid>
+
       <ion-grid style="margin-bottom: 70px">
         <ion-row>
           <ion-col>
@@ -198,10 +137,16 @@
             style="width: 150px"
           >
             <!-- <ion-img
-              style="width: 170px; height: 275px"
-              :src="food.imgSrc"
-            ></ion-img> -->
-            <ion-card style="width: 165px; height: 270px">
+                style="width: 170px; height: 275px"
+                :src="food.imgSrc"
+              ></ion-img> -->
+
+            <ion-card
+              @click="onSlideChange"
+              router-link="/user/My-Orders"
+              router-direction="forward"
+              style="width: 165px; height: 270px"
+            >
               <ion-card-header>
                 <div
                   style="
@@ -234,25 +179,25 @@
         </ion-row>
       </ion-grid>
       <!-- <div id="container">
-        <strong class="capitalize">{{ $route.name }}</strong>
-        <p>
-          Explore
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://ionicframework.com/docs/components"
-            >UI Components</a
-          >
-        </p>
-      </div> -->
-      <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+          <strong class="capitalize">{{ $route.name }}</strong>
+          <p>
+            Explore
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://ionicframework.com/docs/components"
+              >UI Components</a
+            >
+          </p>
+        </div> -->
+      <!-- <ion-fab slot="fixed" vertical="bottom" horizontal="end">
         <ion-fab-button
           id="order"
           router-direction="root"
           router-link="/user/order"
           >Order Now
         </ion-fab-button>
-      </ion-fab>
+      </ion-fab> -->
     </ion-content>
   </ion-page>
 </template>
@@ -285,8 +230,11 @@ import {
   IonCardContent,
   IonCardSubtitle,
   IonCardTitle,
+  IonSegment,
+  IonSegmentButton,
+  IonLabel,
 } from '@ionic/vue';
-import { chevronForwardSharp } from 'ionicons/icons';
+import { bagSharp, chevronForwardSharp, optionsOutline } from 'ionicons/icons';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { ref } from 'vue';
@@ -297,6 +245,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import StarRating from 'vue-star-rating';
 
+const foodTypes = ['All', 'Breakfast', 'Chimken', 'Seafood', 'Dessert'];
 const specialOffers = [
   {
     id: 1,
@@ -350,6 +299,34 @@ const foodCards = [
     type: 'Chimken',
     imgSrc: '../../public/chickensalad.png',
   },
+  {
+    id: 5,
+    name: 'Steak Fries Veggies',
+    price: 'P 175',
+    type: 'Meat',
+    imgSrc: '../../public/steakfries.png',
+  },
+  {
+    id: 6,
+    name: 'Fried Chimken',
+    price: 'P 175',
+    type: 'Chimken',
+    imgSrc: '../../public/friedchimken.png',
+  },
+  {
+    id: 7,
+    name: 'Sorvetes',
+    price: 'P 185',
+    type: 'Dessert',
+    imgSrc: '../../public/sorvetes.png',
+  },
+  {
+    id: 8,
+    name: 'Chimken Salad',
+    price: 'P 172',
+    type: 'Chimken',
+    imgSrc: '../../public/chickensalad.png',
+  },
 ];
 const screenBreakpoints_special = {
   320: { slidesPerView: 1, spaceBetween: -40 },
@@ -375,6 +352,16 @@ function isDesktop() {
 </script>
 
 <style scoped>
+ion-segment-button.segment-button {
+  font-size: 12px;
+  font-weight: bold;
+  --background: var(--ion-color-light-shade);
+  --border-radius: 16px;
+  --background-checked: red;
+  --indicator-color: null;
+  --color-checked: white;
+  margin-right: 10px;
+}
 ion-fab-button#order {
   --border-radius: 16px;
   width: 160px;
@@ -402,6 +389,19 @@ ion-card {
   border-radius: 16px;
   --background: #e9ecef;
   box-shadow: none;
+}
+ion-button#setting {
+  --background: #e9ecef;
+  --box-shadow: none;
+  --color-activated: var(--ion-color-primary-tint);
+  --border-radius: 16px;
+  position: absolute;
+  right: 10px;
+  bottom: 24px;
+  z-index: 1;
+}
+ion-button#setting ion-icon {
+  color: var(--ion-color-primary);
 }
 ion-searchbar.searchbar {
   --icon-color: var(--ion-color-primary);
@@ -491,6 +491,14 @@ ion-icon.points-icon {
 ion-avatar.profile-container {
   /* background-color: red; */
   align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-right: 20px;
+}
+.order-container {
+  /* background-color: red; */
+  width: 50px;
+  height: 35px;
   display: flex;
   justify-content: center;
   margin-right: 20px;

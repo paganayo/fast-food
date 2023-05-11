@@ -1,13 +1,12 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button color="primary"></ion-menu-button>
-        </ion-buttons>
-        <ion-title>{{ $route.params.id }}</ion-title>
-      </ion-toolbar>
-    </ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button color="primary"></ion-menu-button>
+        <ion-badge color="warning" mode="md">&nbsp;</ion-badge>
+      </ion-buttons>
+      <!-- <ion-title>{{ $route.params.id }}</ion-title> -->
+    </ion-toolbar>
 
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
@@ -18,14 +17,23 @@
 
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
-        <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+        <p>This page is under development</p>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
-<script setup lang="ts">
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+<script setup>
+import {
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonMenuButton,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  IonBadge,
+} from '@ionic/vue';
 </script>
 
 <style scoped>
@@ -52,5 +60,13 @@ import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, Io
 
 #container a {
   text-decoration: none;
+}
+ion-badge {
+  position: absolute;
+  top: 15px;
+  left: 25px;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
 }
 </style>

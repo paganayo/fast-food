@@ -27,13 +27,9 @@
               src="../../public/mina.jpg"
             />
         </ion-avatar> -->
-          <ion-icon
-            slot="end"
-            style="font-size: 27px"
-            color="primary"
-            :icon="bagSharp"
-            s
-          ></ion-icon>
+          <ion-button id="my-order">
+            <ion-icon :icon="bagSharp"></ion-icon
+          ></ion-button>
         </div>
       </div>
     </ion-toolbar>
@@ -126,25 +122,24 @@
 
       <ion-grid style="margin-bottom: 70px">
         <ion-row>
-          <ion-col>
-            <ion-text class="headers">Most Popular</ion-text>
-          </ion-col>
-        </ion-row>
-        <ion-row>
           <ion-col
             v-for="(food, index) in foodCards"
             :key="index"
-            style="width: 150px"
+            size-xs="6"
+            size-sm="4"
+            size-md="3"
           >
+            <FoodCards v-bind:food="food" />
+
             <!-- <ion-img
                 style="width: 170px; height: 275px"
                 :src="food.imgSrc"
               ></ion-img> -->
+            <!-- ======================================== -->
+            <!-- {{ food }} -->
 
-            <ion-card
-              @click="onSlideChange"
-              router-link="/user/My-Orders"
-              router-direction="forward"
+            <!-- <ion-card
+              @click="() => router.push('/order/my-order')"
               style="width: 165px; height: 270px"
             >
               <ion-card-header>
@@ -174,30 +169,11 @@
                   class="customtext"
                 ></star-rating>
               </div>
-            </ion-card>
+            </ion-card> -->
+            <!-- ============================================= -->
           </ion-col>
         </ion-row>
       </ion-grid>
-      <!-- <div id="container">
-          <strong class="capitalize">{{ $route.name }}</strong>
-          <p>
-            Explore
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://ionicframework.com/docs/components"
-              >UI Components</a
-            >
-          </p>
-        </div> -->
-      <!-- <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-        <ion-fab-button
-          id="order"
-          router-direction="root"
-          router-link="/user/order"
-          >Order Now
-        </ion-fab-button>
-      </ion-fab> -->
     </ion-content>
   </ion-page>
 </template>
@@ -238,36 +214,39 @@ import { bagSharp, chevronForwardSharp, optionsOutline } from 'ionicons/icons';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import StarRating from 'vue-star-rating';
+import FoodCards from '../components/FoodCards.vue';
 
+const router = useRouter();
 const foodTypes = ['All', 'Breakfast', 'Chimken', 'Seafood', 'Dessert'];
 const specialOffers = [
   {
     id: 1,
     name: 'discount-chimken',
-    imgSrc: '../../public/special-offer-1.png',
+    imgSrc: '/special-offer-1.png',
   },
   {
     id: 2,
     name: 'all-u-can-eat',
-    imgSrc: '../../public/special-offer-2.png',
+    imgSrc: '/special-offer-2.png',
   },
 ];
 const category = [
   {
     id: 1,
     name: 'Chimken',
-    imgSrc: '../../public/category-chimken.png',
+    imgSrc: '/category-chimken.png',
   },
   {
     id: 2,
     name: 'Seafood',
-    imgSrc: '../../public/category-seafood.png',
+    imgSrc: '/category-seafood.png',
   },
 ];
 const foodCards = [
@@ -276,56 +255,72 @@ const foodCards = [
     name: 'Steak Fries Veggies',
     price: 'P 175',
     type: 'Meat',
-    imgSrc: '../../public/steakfries.png',
+    imgSrc: '/steakfries.png',
+    description:
+      'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.',
   },
   {
     id: 2,
     name: 'Fried Chimken',
     price: 'P 175',
     type: 'Chimken',
-    imgSrc: '../../public/friedchimken.png',
+    imgSrc: '/friedchimken.png',
+    description:
+      'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.',
   },
   {
     id: 3,
     name: 'Sorvetes',
     price: 'P 185',
     type: 'Dessert',
-    imgSrc: '../../public/sorvetes.png',
+    imgSrc: '/sorvetes.png',
+    description:
+      'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.',
   },
   {
     id: 4,
     name: 'Chimken Salad',
     price: 'P 172',
     type: 'Chimken',
-    imgSrc: '../../public/chickensalad.png',
+    imgSrc: '/chickensalad.png',
+    description:
+      'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.',
   },
   {
     id: 5,
     name: 'Steak Fries Veggies',
     price: 'P 175',
     type: 'Meat',
-    imgSrc: '../../public/steakfries.png',
+    imgSrc: '/steakfries.png',
+    description:
+      'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.',
   },
   {
     id: 6,
     name: 'Fried Chimken',
     price: 'P 175',
     type: 'Chimken',
-    imgSrc: '../../public/friedchimken.png',
+    imgSrc: '/friedchimken.png',
+    description:
+      'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.',
   },
   {
     id: 7,
     name: 'Sorvetes',
     price: 'P 185',
     type: 'Dessert',
-    imgSrc: '../../public/sorvetes.png',
+    imgSrc: '/sorvetes.png',
+    description:
+      'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.',
   },
   {
     id: 8,
     name: 'Chimken Salad',
     price: 'P 172',
     type: 'Chimken',
-    imgSrc: '../../public/chickensalad.png',
+    imgSrc: '/chickensalad.png',
+    description:
+      'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.',
   },
 ];
 const screenBreakpoints_special = {
@@ -344,8 +339,11 @@ const onSwiper = (swiper) => {
 const onSlideChange = () => {
   console.log('slide change');
 };
-
 const modules = [Navigation, Pagination, Scrollbar, A11y, Autoplay];
+
+// function goToOrderDetail {
+//   this.$router.push('/my-orders');
+// }
 function isDesktop() {
   return window.innerWidth >= 992;
 }
@@ -390,6 +388,16 @@ ion-card {
   --background: #e9ecef;
   box-shadow: none;
 }
+ion-button#my-order {
+  --background: none;
+  --color: var(--ion-color-primary-tint);
+  --box-shadow: none;
+  --border-radius: 16px;
+  z-index: 1;
+}
+ion-button#my-order ion-icon {
+  color: var(--ion-color-primary);
+}
 ion-button#setting {
   --background: #e9ecef;
   --box-shadow: none;
@@ -400,6 +408,7 @@ ion-button#setting {
   bottom: 24px;
   z-index: 1;
 }
+
 ion-button#setting ion-icon {
   color: var(--ion-color-primary);
 }
@@ -500,7 +509,8 @@ ion-avatar.profile-container {
   width: 50px;
   height: 35px;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  align-items: flex-end;
   margin-right: 20px;
 }
 img.profile {

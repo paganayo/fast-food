@@ -24,7 +24,7 @@
         <ion-row class="ion-align-items-center" style="margin-bottom: -10px">
           <ion-col size="50px">
             <ion-avatar class="crown-container">
-              <img class="crown" src="../../public/crown.png" />
+              <img class="crown" src="/crown.png" />
             </ion-avatar>
           </ion-col>
           <ion-col id="btier" size="4">
@@ -34,7 +34,7 @@
             <ion-button
               fill="clear"
               router-direction="root"
-              router-link="/user/loyalty-points"
+              router-link="/loyalty-points"
               class="ion-text-capitalize points-button"
             >
               View All
@@ -99,7 +99,7 @@
             <ion-button
               fill="clear"
               router-direction="root"
-              router-link="/user/loyalty-points"
+              router-link="/loyalty-points"
               class="ion-text-capitalize points-button"
             >
               How it works
@@ -167,7 +167,7 @@
                       justify-content: flex-start;
                     "
                   >
-                    <img id="crown-card" src="../../public/crown.png" />
+                    <img id="crown-card" src="/crown.png" />
                     <ion-card-content v-if="item.id === 1">
                       <ion-text>{{ item.points }}</ion-text>
                     </ion-card-content>
@@ -237,7 +237,7 @@ const loyaltyCards = [
     name: 'Steak Fries Veggies',
     points: '20 points',
     type: 'Meat',
-    imgSrc: '../../public/steakfries.png',
+    imgSrc: '/steakfries.png',
   },
   {
     id: 2,

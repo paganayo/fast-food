@@ -21,7 +21,7 @@
           <ion-button
             fill="clear"
             router-direction="root"
-            router-link="/user/loyalty-points"
+            router-link="/loyalty-points"
             class="points-button"
           >
             0 points
@@ -37,7 +37,7 @@
             <img
               class="profile"
               alt="Silhouette of a person's head"
-              src="../../public/mina.jpg"
+              src="/mina.jpg"
             />
           </ion-avatar>
         </div>
@@ -54,10 +54,7 @@
       <ion-grid
         ><ion-row>
           <ion-col size="75px">
-            <ion-img
-              id="fastfood-logo"
-              src="../../public/fastfood.png"
-            ></ion-img> </ion-col
+            <ion-img id="fastfood-logo" src="/fastfood.png"></ion-img> </ion-col
           ><ion-col
             :style="{
               display: 'flex',
@@ -183,7 +180,7 @@
             <ion-text class="headers">What's new?</ion-text>
           </ion-col>
         </ion-row>
-        <ion-img style="margin: 20px" src="../../public/whatsN.png"> </ion-img>
+        <ion-img style="margin: 20px" src="/whatsN.png"> </ion-img>
       </ion-grid>
       <ion-grid style="margin-bottom: 70px">
         <ion-row>
@@ -246,10 +243,7 @@
         </p>
       </div> -->
       <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-        <ion-fab-button
-          id="order"
-          router-direction="root"
-          router-link="/user/order"
+        <ion-fab-button id="order" router-direction="root" router-link="/order"
           >Order Now
         </ion-fab-button>
       </ion-fab>
@@ -301,24 +295,24 @@ const specialOffers = [
   {
     id: 1,
     name: 'discount-chimken',
-    imgSrc: '../../public/special-offer-1.png',
+    imgSrc: '/special-offer-1.png',
   },
   {
     id: 2,
     name: 'all-u-can-eat',
-    imgSrc: '../../public/special-offer-2.png',
+    imgSrc: '/special-offer-2.png',
   },
 ];
 const category = [
   {
     id: 1,
     name: 'Chimken',
-    imgSrc: '../../public/category-chimken.png',
+    imgSrc: '/category-chimken.png',
   },
   {
     id: 2,
     name: 'Seafood',
-    imgSrc: '../../public/category-seafood.png',
+    imgSrc: '/category-seafood.png',
   },
 ];
 const foodCards = [
@@ -327,28 +321,28 @@ const foodCards = [
     name: 'Steak Fries Veggies',
     price: 'P 175',
     type: 'Meat',
-    imgSrc: '../../public/steakfries.png',
+    imgSrc: '/steakfries.png',
   },
   {
     id: 2,
     name: 'Fried Chimken',
     price: 'P 175',
     type: 'Chimken',
-    imgSrc: '../../public/friedchimken.png',
+    imgSrc: '/friedchimken.png',
   },
   {
     id: 3,
     name: 'Sorvetes',
     price: 'P 185',
     type: 'Dessert',
-    imgSrc: '../../public/sorvetes.png',
+    imgSrc: '/sorvetes.png',
   },
   {
     id: 4,
     name: 'Chimken Salad',
     price: 'P 172',
     type: 'Chimken',
-    imgSrc: '../../public/chickensalad.png',
+    imgSrc: '/chickensalad.png',
   },
 ];
 const screenBreakpoints_special = {

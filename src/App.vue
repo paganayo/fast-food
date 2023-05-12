@@ -10,7 +10,7 @@
                   <img
                     class="profile"
                     alt="Silhouette of a person's head"
-                    src="../public/mina.jpg"
+                    src="/mina.jpg"
                   />
                 </ion-avatar>
               </div>
@@ -24,14 +24,14 @@
                 "
               >
                 <ion-avatar>
-                  <img class="crown" src="../public/crown.png" />
+                  <img class="crown" src="/crown.png" />
                 </ion-avatar>
                 <ion-menu-toggle :auto-hide="false">
                   <ion-button
                     @click="testt()"
                     fill="clear"
                     router-direction="root"
-                    router-link="/user/loyalty-points"
+                    router-link="/loyalty-points"
                     class="points-button"
                   >
                     {{ loyaltyPoints.count }} points
@@ -72,7 +72,7 @@
                 <ion-img
                   v-if="index === 0"
                   id="fastfood-logo"
-                  src="../../public/fastfood.png"
+                  src="/fastfood.png"
                 ></ion-img>
                 <ion-icon
                   v-if="index !== 0"
@@ -149,52 +149,52 @@ const loyaltyPoints = reactive({ count: 0 });
 const menuList = [
   {
     title: 'Home',
-    url: '/user/home',
+    url: '/home',
     mdIcon: homeSharp,
   },
   {
     title: 'Order Now!',
-    url: '/user/order',
+    url: '/order',
     mdIcon: fastFoodSharp,
   },
   {
     title: 'Notifications',
-    url: '/user/notifications',
+    url: '/notifications',
     mdIcon: notificationsSharp,
   },
   {
     title: 'Store Locator',
-    url: '/user/store-locator',
+    url: '/store-locator',
     mdIcon: storefrontSharp,
   },
   {
     title: `FAQ's`,
-    url: '/user/FAQ',
+    url: '/FAQ',
     mdIcon: helpCircleSharp,
   },
   {
     title: 'My Orders',
-    url: '/user/My-Orders',
+    url: '/My-Orders',
     mdIcon: bagSharp,
   },
   {
     title: 'My Account',
-    url: '/user/My-Account',
+    url: '/My-Account',
     mdIcon: fastFoodSharp,
   },
   {
     title: 'My Favorites',
-    url: '/user/My-Favorites',
+    url: '/My-Favorites',
     mdIcon: notificationsSharp,
   },
   {
     title: 'Order Tracker',
-    url: '/user/Order-Tracker',
+    url: '/Order-Tracker',
     mdIcon: storefrontSharp,
   },
   {
     title: 'Order History',
-    url: '/user/Order-History',
+    url: '/Order-History',
     mdIcon: helpCircleSharp,
   },
 ];

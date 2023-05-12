@@ -3,25 +3,30 @@ import HomePage from '@/views/HomePage.vue';
 import LoyaltyPage from '@/views/LoyaltyPage.vue';
 import LoginPage from '@/views/LoginPage.vue';
 import OrderPage from '@/views/OrderPage.vue';
+import OrderInfoPage from '@/views/OrderInfoPage.vue';
 const routes = [
   {
     path: '',
     redirect: '/login',
   },
   {
-    path: '/user/home',
+    path: '/home',
     name: 'Home',
     component: HomePage,
   },
   {
-    path: '/user/loyalty-points',
+    path: '/loyalty-points',
     name: 'Loyalty',
     component: LoyaltyPage,
   },
   {
-    path: '/user/order',
+    path: '/order',
     name: 'Our Foods',
     component: OrderPage,
+  },
+  {
+    path: '/order/my-order',
+    component: OrderInfoPage,
   },
   {
     path: '/login',
@@ -29,7 +34,7 @@ const routes = [
     component: LoginPage,
   },
   {
-    path: '/user/:id',
+    path: '/:id',
     component: () => import('../views/UnderDevelopment.vue'),
   },
 ];

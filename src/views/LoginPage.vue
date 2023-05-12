@@ -4,7 +4,7 @@
       <ion-grid style="padding-top: 50px">
         <ion-row>
           <ion-col>
-            <ion-img src="../../public/fastfood.png"></ion-img>
+            <ion-img src="/fastfood.png"></ion-img>
           </ion-col>
         </ion-row>
         <ion-row>

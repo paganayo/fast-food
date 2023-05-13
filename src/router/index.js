@@ -3,7 +3,8 @@ import HomePage from '@/views/HomePage.vue';
 import LoyaltyPage from '@/views/LoyaltyPage.vue';
 import LoginPage from '@/views/LoginPage.vue';
 import OrderPage from '@/views/OrderPage.vue';
-import OrderInfoPage from '@/views/OrderInfoPage.vue';
+import OrderInfo from '@/components/OrderInfo.vue';
+import Checkout from '@/components/Checkout.vue';
 const routes = [
   {
     path: '',
@@ -26,7 +27,19 @@ const routes = [
   },
   {
     path: '/order/my-order',
-    component: OrderInfoPage,
+    name: 'Order Info',
+    component: OrderInfo,
+  },
+  {
+    path: '/order/my-order/:id',
+    name: 'Order Info',
+    component: OrderInfo,
+  },
+  {
+    path: '/checkout/:id',
+    name: 'Checkout',
+    component: Checkout,
+    props: true,
   },
   {
     path: '/login',

@@ -1,6 +1,8 @@
 <template>
   <ion-card
-    @click="() => router.push('/order/my-order')"
+    @click="
+      () => router.push({ name: 'Order Info', params: { id: `${food.id}` } })
+    "
     style="width: 165px; height: 270px"
   >
     <ion-card-header>
@@ -38,12 +40,12 @@ import {
   IonCardTitle,
   IonButton,
 } from '@ionic/vue';
-import StarRating from 'vue-star-rating';
+import StarRating from 'vue-star-rating'; //https://www.npmjs.com/package/vue-star-rating
 import { defineProps } from 'vue';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 const props = defineProps(['food']);
-console.log('my props: ', props.food);
+// console.log('my props: ', props.food);
 </script>
 
 <style scoped>
@@ -56,6 +58,7 @@ ion-text#price {
   color: red;
   margin: 0px 30px 0px 20px;
 }
+
 .customtext {
   font-size: 0px;
   width: 20px;

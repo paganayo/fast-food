@@ -2,7 +2,7 @@
   <ion-page>
     <ion-toolbar>
       <ion-buttons slot="start">
-        <ion-back-button></ion-back-button>
+        <ion-back-button defaultHref="/home"></ion-back-button>
         <!-- <ion-menu-button color="primary"></ion-menu-button> -->
         <!-- <ion-badge color="warning" mode="md">&nbsp;</ion-badge> -->
         <ion-title>Back Button</ion-title>
@@ -19,6 +19,7 @@
 
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
+        {{ $route }}
         <p>This page is under development</p>
       </div>
     </ion-content>

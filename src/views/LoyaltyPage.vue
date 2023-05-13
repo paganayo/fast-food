@@ -142,43 +142,41 @@
         </ion-row>
         <ion-row> </ion-row>
       </ion-grid>
-      <ion-list>
-        <ion-card v-for="item in loyaltyCards" :key="item.id">
-          <ion-grid v-if="item.id === 1">
-            <ion-row>
-              <ion-col
-                size="40px"
-                style="
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                "
-              >
-                <img class="item-img" :src="item.imgSrc" />
-              </ion-col>
-              <ion-col style="display: flex; padding-left: 0px">
-                <ion-card-header>
-                  <ion-card-title>{{ item.name }}</ion-card-title>
-                  <ion-card-subtitle>{{ item.type }}</ion-card-subtitle>
-                  <div
-                    style="
-                      display: flex;
-                      align-items: center;
-                      justify-content: flex-start;
-                    "
-                  >
-                    <img id="crown-card" src="/crown.png" />
-                    <ion-card-content v-if="item.id === 1">
-                      <ion-text>{{ item.points }}</ion-text>
-                    </ion-card-content>
-                  </div>
-                </ion-card-header>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-          <!-- Card content -->
-        </ion-card>
-      </ion-list>
+      <ion-card v-for="item in loyaltyCards" :key="item.id">
+        <ion-grid v-if="item.id === 1">
+          <ion-row>
+            <ion-col
+              size="40px"
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+            >
+              <img class="item-img" :src="item.imgSrc" />
+            </ion-col>
+            <ion-col style="display: flex; padding-left: 0px">
+              <ion-card-header>
+                <ion-card-title>{{ item.name }}</ion-card-title>
+                <ion-card-subtitle>{{ item.type }}</ion-card-subtitle>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                  "
+                >
+                  <img id="crown-card" src="/crown.png" />
+                  <ion-card-content v-if="item.id === 1">
+                    <ion-text>{{ item.points }}</ion-text>
+                  </ion-card-content>
+                </div>
+              </ion-card-header>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- Card content -->
+      </ion-card>
 
       <!-- <div id="container">
         <strong class="capitalize">{{ $route.name }}</strong>

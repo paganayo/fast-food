@@ -2,7 +2,7 @@
   <ion-page>
     <ion-toolbar>
       <ion-buttons slot="start">
-        <ion-back-button></ion-back-button>
+        <ion-back-button defaultHref="/"></ion-back-button>
         <!-- <ion-menu-button color="primary"></ion-menu-button> -->
         <!-- <ion-badge color="warning" mode="md">&nbsp;</ion-badge> -->
         <ion-title>Back Button</ion-title>
@@ -19,7 +19,9 @@
 
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
-        {{ $route }}
+
+        <p>Checkout</p>
+        {{ route }}
         <p>This page is under development</p>
       </div>
     </ion-content>
@@ -38,6 +40,41 @@ import {
   IonBadge,
   IonBackButton,
 } from '@ionic/vue';
+import { useRouter, useRoute } from 'vue-router';
+import { defineProps } from 'vue';
+
+const router = useRouter();
+const route = useRoute();
+
+const orders = [
+  {
+    id: 1,
+    name: 'Steak Fries Veggies',
+    price: 'P 175',
+    type: 'Meat',
+    imgSrc: '/steakfries.png',
+    description:
+      'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.',
+  },
+  {
+    id: 2,
+    name: 'Tomato Sows',
+    price: 'P 175',
+    type: 'Meat',
+    imgSrc: '/steakfries.png',
+    description:
+      'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.',
+  },
+  {
+    id: 2,
+    name: 'Steak Fries Veggies',
+    price: 'P 175',
+    type: 'Meat',
+    imgSrc: '/steakfries.png',
+    description:
+      'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam eu aliquam ipsum, sed accumsan metus. Maecenas neque nunc, tincidunt nec dui ac, rutrum consectetur ligula.',
+  },
+];
 </script>
 
 <style scoped>

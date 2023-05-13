@@ -129,7 +129,7 @@
             size-sm="4"
             size-md="3"
           >
-            <FoodCards v-bind:food="food" />
+            <FoodCards :food="food" />
 
             <!-- <ion-img
                 style="width: 170px; height: 275px"
@@ -209,6 +209,7 @@ import {
   IonSegment,
   IonSegmentButton,
   IonLabel,
+  IonNav,
 } from '@ionic/vue';
 import { bagSharp, chevronForwardSharp, optionsOutline } from 'ionicons/icons';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
@@ -222,7 +223,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import StarRating from 'vue-star-rating';
 import FoodCards from '../components/FoodCards.vue';
-
 const router = useRouter();
 const foodTypes = ['All', 'Breakfast', 'Chimken', 'Seafood', 'Dessert'];
 const specialOffers = [

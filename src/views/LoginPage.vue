@@ -70,7 +70,7 @@
           <ion-col style="display: flex; justify-content: center">
             <ion-button
               router-direction="root"
-              router-link="user/home"
+              router-link="/home"
               class="ion-text-capitalize login"
             >
               Login

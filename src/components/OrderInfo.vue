@@ -30,6 +30,7 @@
 
     <ion-content
       :fullscreen="true"
+      :force-overscroll="true"
       style="padding-left: 10px; padding-bottom: 50px"
     >
       <ion-card

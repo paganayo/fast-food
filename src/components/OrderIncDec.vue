@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex; align-items: center">
+  <div style="display: flex; align-items: center; justify-content: flex-end">
     <ion-button @click="decreaseOrder()" class="ion-align-self-center button">
       <ion-icon :icon="removeOutline"></ion-icon
     ></ion-button>
@@ -34,9 +34,14 @@ function decreaseOrder() {
 
 <style scoped>
 ion-button.button {
-  --background: #e9ecef;
-  --border-radius: 20px;
-  height: 50px;
+  --background: var(--ion-color-light-shade);
+  --border-radius: 8px;
+}
+ion-button.button::part(native) {
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 30px;
+  height: 30px;
 }
 ion-text {
   margin-left: 10px;

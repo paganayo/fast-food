@@ -1,108 +1,110 @@
 <template>
   <ion-app>
-    <ion-split-pane content-id="main-content">
-      <ion-menu content-id="main-content" type="overlay">
-        <ion-content>
-          <ion-list>
-            <div style="display: flex; flex-direction: row">
-              <div>
-                <ion-avatar>
-                  <img
-                    class="profile"
-                    alt="Silhouette of a person's head"
-                    src="/mina.jpg"
-                  />
-                </ion-avatar>
-              </div>
-              <div
-                style="
-                  /* background-color: blueviolet; */
-                  flex: 1;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                "
-              >
-                <ion-avatar>
-                  <img class="crown" src="/crown.png" />
-                </ion-avatar>
-                <ion-menu-toggle :auto-hide="false">
-                  <ion-button
-                    @click="testt()"
-                    fill="clear"
-                    router-direction="root"
-                    router-link="/loyalty-points"
-                    class="points-button"
-                  >
-                    {{ loyaltyPoints.count }} points
-                    <ion-icon
-                      class="points-icon"
-                      slot="end"
-                      :icon="chevronForwardSharp"
-                    ></ion-icon>
-                  </ion-button>
-                </ion-menu-toggle>
-              </div>
+    <!-- <ion-split-pane content-id="main-content"> -->
+    <ion-menu
+      content-id="main-content"
+      type="overlay"
+      swipe-gesture="false"
+      ref="menuRef"
+    >
+      <ion-content>
+        <ion-list>
+          <div style="display: flex; flex-direction: row">
+            <div>
+              <ion-avatar>
+                <img
+                  class="profile"
+                  alt="Silhouette of a person's head"
+                  src="/mina.jpg"
+                />
+              </ion-avatar>
             </div>
-            <ion-list-header class="ion-margin-top"
-              >Penguin Mina</ion-list-header
+            <div
+              style="
+                /* background-color: blueviolet; */
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
             >
-            <ion-note>+63 912 345 6789</ion-note>
-
-            <ion-menu-toggle
-              :auto-hide="false"
-              v-for="(menu, index) in menuList"
-              :key="index"
-            >
-              <ion-item-divider
-                v-if="index === 5"
-                style="transform: translateY(-50%)"
-              />
-              <ion-item
-                @click="menuClick(index)"
-                router-direction="root"
-                :router-link="menu.url"
-                lines="none"
-                :detail="false"
-                class="hydrated"
-                :class="{
-                  selected: selectedIndex === index,
-                }"
-              >
-                <ion-img
-                  v-if="index === 0"
-                  id="fastfood-logo"
-                  src="/fastfood.png"
-                ></ion-img>
-                <ion-icon
-                  v-if="index !== 0"
-                  aria-hidden="true"
-                  slot="start"
-                  :md="menu.mdIcon"
-                ></ion-icon>
-                <ion-label style="font-weight: bold">{{
-                  menu.title
-                }}</ion-label>
-                <ion-badge
-                  class="notif-badge"
-                  v-if="index === 2 || index === 5"
-                  color="warning"
-                  >{{ index === 2 ? '4' : '2' }}</ion-badge
+              <ion-avatar>
+                <img class="crown" src="/crown.png" />
+              </ion-avatar>
+              <ion-menu-toggle :auto-hide="false">
+                <ion-button
+                  @click="testt()"
+                  fill="clear"
+                  router-direction="root"
+                  router-link="/loyalty-points"
+                  class="points-button"
                 >
-              </ion-item>
-            </ion-menu-toggle>
-          </ion-list>
-          <ion-button
-            shape="round"
-            class="ion-text-capitalize logout"
-            router-direction="root"
-            router-link="/login"
-            >Logout</ion-button
+                  {{ loyaltyPoints.count }} points
+                  <ion-icon
+                    class="points-icon"
+                    slot="end"
+                    :icon="chevronForwardSharp"
+                  ></ion-icon>
+                </ion-button>
+              </ion-menu-toggle>
+            </div>
+          </div>
+          <ion-list-header class="ion-margin-top">Penguin Mina</ion-list-header>
+          <ion-note>+63 912 345 6789</ion-note>
+
+          <ion-menu-toggle
+            :auto-hide="false"
+            v-for="(menu, index) in menuList"
+            :key="index"
           >
-        </ion-content>
-      </ion-menu>
-      <ion-router-outlet id="main-content"></ion-router-outlet>
-    </ion-split-pane>
+            <ion-item-divider
+              v-if="index === 5"
+              style="transform: translateY(-50%)"
+            />
+            <ion-item
+              @click="menuClick(index)"
+              router-direction="root"
+              :router-link="menu.url"
+              lines="none"
+              :detail="false"
+              class="hydrated"
+              :class="{
+                selected: selectedIndex === index,
+              }"
+            >
+              <ion-img
+                v-if="index === 0"
+                id="fastfood-logo"
+                src="/fastfood.png"
+              ></ion-img>
+              <ion-icon
+                v-if="index !== 0"
+                aria-hidden="true"
+                slot="start"
+                :md="menu.mdIcon"
+              ></ion-icon>
+              <ion-label style="font-weight: bold">{{ menu.title }}</ion-label>
+              <ion-badge
+                class="notif-badge"
+                v-if="index === 2 || index === 5"
+                color="warning"
+                >{{ index === 2 ? '4' : '2' }}</ion-badge
+              >
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-button
+          shape="round"
+          class="ion-text-capitalize logout"
+          router-direction="root"
+          router-link="/login"
+          @click="logout"
+          >Logout</ion-button
+        >
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+    <!-- </ion-split-pane> -->
   </ion-app>
 </template>
 
@@ -137,6 +139,11 @@ import {
   chevronForwardSharp,
 } from 'ionicons/icons';
 
+const menuRef = ref();
+
+function logout() {
+  console.log(menuRef.value.$el.close());
+}
 function menuClick(index) {
   console.log('selected index value: ', selectedIndex.value, index);
   selectedIndex.value = index;

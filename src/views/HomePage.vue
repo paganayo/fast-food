@@ -16,7 +16,7 @@
           "
         >
           <ion-avatar class="crown-container">
-            <img class="crown" src="../../public/crown.png" />
+            <img class="crown" src="/crown.png" />
           </ion-avatar>
           <ion-button
             fill="clear"

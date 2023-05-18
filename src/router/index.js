@@ -5,6 +5,7 @@ import LoginPage from '@/views/LoginPage.vue';
 import OrderPage from '@/views/OrderPage.vue';
 import OrderInfo from '@/components/OrderInfo.vue';
 import Checkout from '@/components/Checkout.vue';
+import OrderComplete from '@/components/OrderComplete.vue';
 const routes = [
   {
     path: '',
@@ -39,6 +40,18 @@ const routes = [
     path: '/checkout/:id',
     name: 'Checkout',
     component: Checkout,
+    props: true,
+  },
+  {
+    path: '/OrderComplete/',
+    name: 'Order Complete',
+    component: OrderComplete,
+    props: true,
+  },
+  {
+    path: '/OrderComplete/:id',
+    name: 'Order Complete',
+    component: OrderComplete,
     props: true,
   },
   {

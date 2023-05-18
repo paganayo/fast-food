@@ -143,54 +143,60 @@
           </ion-segment-button>
         </ion-segment>
       </div>
+
       <ion-text class="headers">Add-Ons</ion-text>
-      <div>
+      <div style="margin-bottom: 12vh">
         <ion-card v-for="item in addOns" :key="item.id">
-          <ion-grid>
+          <ion-grid style="padding-bottom: 0px">
             <ion-row>
-              <ion-col
-                size="40px"
-                style="
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                "
-              >
+              <ion-col size="40px" style="padding-bottom: 0px">
                 <img class="item-img" :src="item.imgSrc" />
               </ion-col>
-              <ion-col style="display: flex; padding-left: 0px">
-                <ion-card-header>
-                  <ion-card-title>{{ item.name }}</ion-card-title>
+              <ion-col style="padding-bottom: 0px">
+                <ion-card-header style="padding: 0px">
+                  <ion-card-title style="font-size: 14px; font-weight: bold">{{
+                    item.name
+                  }}</ion-card-title>
                   <ion-card-subtitle>{{ item.type }}</ion-card-subtitle>
-                  <div
+
+                  <ion-card-content
                     style="
-                      display: flex;
-                      align-items: center;
-                      justify-content: flex-start;
+                      padding-left: 0px;
+                      font-size: 14px;
+                      font-weight: bold;
+                      color: red;
                     "
                   >
-                    <ion-card-content v-if="item.id === 1">
-                      <ion-text>{{ item.points }}</ion-text>
-                    </ion-card-content>
-                  </div>
+                    <ion-text>{{ item.price }}</ion-text>
+                  </ion-card-content>
                 </ion-card-header>
+              </ion-col>
+              <ion-col
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  padding-bottom: 0px;
+                "
+              >
+                <ion-checkbox
+                  style="align-self: flex-end; margin-bottom: 10px"
+                />
+                <OrderIncDec />
               </ion-col>
             </ion-row>
           </ion-grid>
           <!-- Card content -->
         </ion-card>
       </div>
+
       <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-        <ion-fab-button
-          @click="
-            () =>
-              router.push({
-                name: 'Checkout',
-                params: { id: `${selectedFood.id}` },
-              })
-          "
-          id="add-to-bag"
+        <ion-fab-button @click="openModal" id="add-to-bag"
           >Add to bag
+          <AddToBag_modal
+            :isOpen="isOpen"
+            @proceed="proceed"
+            @addMore="addMore"
+          />
         </ion-fab-button>
       </ion-fab>
     </ion-content>
@@ -199,10 +205,13 @@
 
 <script setup>
 import { useRouter, useRoute } from 'vue-router';
+import { ref } from 'vue';
 import StarRating from 'vue-star-rating';
 import OrderIncDec from './OrderIncDec.vue';
+import AddToBag_modal from './AddToBag_modal.vue';
 import {
   IonSelect,
+  IonCheckbox,
   IonGrid,
   IonCol,
   IonRow,
@@ -229,6 +238,9 @@ import {
   IonIcon,
   IonFab,
   IonFabButton,
+  IonModal,
+  IonList,
+  IonItem,
 } from '@ionic/vue';
 import {
   bagSharp,
@@ -236,10 +248,27 @@ import {
   chevronForwardSharp,
   optionsOutline,
   chevronBackSharp,
+  personCircle,
 } from 'ionicons/icons';
 
 const router = useRouter();
 const route = useRoute();
+
+const isOpen = ref(false);
+
+function proceed() {
+  console.log('proceed clicked');
+  isOpen.value = false;
+  router.push({ name: 'Checkout', params: { id: `${selectedFood.id}` } });
+}
+const openModal = () => {
+  isOpen.value = true;
+};
+const addMore = () => {
+  console.log('add more');
+  isOpen.value = false;
+  router.go(-1);
+};
 const addOns = [
   {
     id: 1,
@@ -345,6 +374,10 @@ ion-select::part(icon) {
   color: red;
   opacity: 1;
 }
+img.item-img {
+  width: 78px;
+  height: 78px;
+}
 
 ion-text.headers {
   font-weight: bold;
@@ -382,6 +415,12 @@ ion-fab-button#add-to-bag {
 }
 .food {
   width: 250px;
+}
+ion-checkbox {
+  --border-style: none;
+  --border-radius: 5px;
+  --checkmark-color: var(--ion-color-warning);
+  --checkbox-background-checked: white;
 }
 ion-segment-button.segment-button {
   font-size: 12px;

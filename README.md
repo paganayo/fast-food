@@ -3,14 +3,16 @@ A Fast Food UI for mobile application
 
 
 ## Preview
-![Screenshot from 2023-05-18 13-00-01](https://github.com/paganayo/fast-food/assets/117369955/44e8da21-7995-4f6e-b3d0-561c566f8aaf)
-![Screenshot from 2023-05-18 13-01-32](https://github.com/paganayo/fast-food/assets/117369955/a2a985e3-9f09-4ba4-8160-847a5bcd39c1)
-![Screenshot from 2023-05-18 13-01-42](https://github.com/paganayo/fast-food/assets/117369955/e3754288-d3f9-41c3-9945-a4e74e364b13)
-![Screenshot from 2023-05-18 13-01-48](https://github.com/paganayo/fast-food/assets/117369955/fe8cd238-5184-47eb-ae31-39f8a946e33f)
-![Screenshot from 2023-05-18 13-01-52](https://github.com/paganayo/fast-food/assets/117369955/06aa591c-9f34-4a6d-b996-639da4add76f)
-![Screenshot from 2023-05-18 13-01-55](https://github.com/paganayo/fast-food/assets/117369955/aeb2c27b-2866-4985-a427-c08999ec5fc5)
-![Screenshot from 2023-05-18 13-02-00](https://github.com/paganayo/fast-food/assets/117369955/f0e4243b-98b3-456a-9b74-3bbbae996134)
-![Screenshot from 2023-05-18 13-03-13](https://github.com/paganayo/fast-food/assets/117369955/03251d4f-9b58-4651-9cfa-1a0e96dcac72)
+![Screenshot from 2023-05-18 13-00-01](https://github.com/paganayo/fast-food/assets/117369955/e9402339-b144-43bc-9fa6-d8ea8605739c)
+![Screenshot from 2023-05-18 13-01-32](https://github.com/paganayo/fast-food/assets/117369955/2b7b6ebe-2cdd-4da8-b638-69f1d9f40827)
+![Screenshot from 2023-05-18 12-59-41](https://github.com/paganayo/fast-food/assets/117369955/aeb6f12a-5c92-4c8c-94fc-8c5837305d75)
+![Screenshot from 2023-05-18 13-01-42](https://github.com/paganayo/fast-food/assets/117369955/f8b1e5ca-1fdf-413d-9cd1-d341ce83f31a)
+![Screenshot from 2023-05-18 13-01-48](https://github.com/paganayo/fast-food/assets/117369955/5ad307f3-149f-465f-89ef-899b8e4e9f8d)
+![Screenshot from 2023-05-18 13-01-52](https://github.com/paganayo/fast-food/assets/117369955/01e2f520-5266-42d0-9c4b-18327cf9cfa3)
+![Screenshot from 2023-05-18 13-01-55](https://github.com/paganayo/fast-food/assets/117369955/62fb1bdf-265a-46b0-bc95-279d14baee3e)
+![Screenshot from 2023-05-18 13-02-00](https://github.com/paganayo/fast-food/assets/117369955/28280995-322c-4241-8904-d398f5b0f24a)
+![Screenshot from 2023-05-18 13-02-07](https://github.com/paganayo/fast-food/assets/117369955/53a495fc-4335-4531-b3c6-30a9fcfa9f65)
+
 
 
 ## Pre-requisites
